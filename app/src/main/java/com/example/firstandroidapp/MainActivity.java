@@ -32,36 +32,36 @@ public class MainActivity extends AppCompatActivity {
 
                 if (nameString.isEmpty()) {
                     name.setError("You must insert an username !");
-                }
-
-                ArrayList<Character> arrayOfAllowedChars = new ArrayList<>();
-                String stringOfAllowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-                for (int i = 0; i < stringOfAllowedChars.length(); i++) {
-                    arrayOfAllowedChars.add(stringOfAllowedChars.charAt(i));
-                }
-
-                int countOfSpecialChars = 0;
-
-                for (int i = 0; i < nameString.length(); i++) {
-                    if (!arrayOfAllowedChars.contains(nameString.charAt(i))) {
-                        countOfSpecialChars++;
-                    }
-                }
-
-                if (countOfSpecialChars > 0) {
-                    name.setError("This field does not accept special characters!");
                 } else {
-                    if (!nameString.equals("Andrei")) {
-                        name.setError("Unknown User");
+                    ArrayList<Character> arrayOfAllowedChars = new ArrayList<>();
+                    String stringOfAllowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                    for (int i = 0; i < stringOfAllowedChars.length(); i++) {
+                        arrayOfAllowedChars.add(stringOfAllowedChars.charAt(i));
                     }
+
+                    int countOfSpecialChars = 0;
+
+                    for (int i = 0; i < nameString.length(); i++) {
+                        if (!arrayOfAllowedChars.contains(nameString.charAt(i))) {
+                            countOfSpecialChars++;
+                        }
+                    }
+
+                    if (countOfSpecialChars > 0) {
+                        name.setError("This field does not accept special characters!");
+                    } else {
+                        if (!nameString.equals("Andrei")) {
+                            name.setError("Unknown User");
+                        }
+                    }
+
+                    if (nameString.equals("Andrei")) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                        startActivity(intent);
+                    }
+
+
                 }
-
-                if(nameString.equals("Andrei")){
-                    Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
-                    startActivity(intent);
-                }
-
-
             }
         });
     }
