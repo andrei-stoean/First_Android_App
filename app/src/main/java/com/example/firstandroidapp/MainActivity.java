@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
         continueButton = findViewById(R.id.continueButton);
         errorMessage = findViewById(R.id.errorMessage);
 
-        String nameString = name.getText().toString();
-
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
